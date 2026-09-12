@@ -75,6 +75,16 @@ python tools/sing-box/generate_singbox_rules.py -o singbox_rules.json
 
 Import in Throne / NekoRay: Preferences → Routing Setting → Advanced → Import JSON.
 
+Generate a complete profile suitable for Throne 1.2.0+ remote-route updates:
+
+```bash
+python tools/sing-box/generate_singbox_rules.py \
+  --throne-profile -o generated/throne-profile.json
+```
+
+The fork workflow `.github/workflows/update-throne-profile.yml` refreshes this
+file from the upstream `HAPP/DEFAULT.JSON` every six hours.
+
 ## 🔧 Advanced
 
 All scripts accept `--url` to point at a custom config URL:

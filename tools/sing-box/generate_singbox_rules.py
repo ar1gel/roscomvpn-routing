@@ -18,6 +18,7 @@ import argparse
 import json
 import sys
 import urllib.request
+from typing import Optional
 
 DEFAULT_CONFIG_URL = (
     "https://raw.githubusercontent.com/hydraponique/"
@@ -62,7 +63,7 @@ def fetch_config(url: str) -> dict:
         sys.exit(1)
 
 
-def _geosite_to_srs(name: str) -> str | None:
+def _geosite_to_srs(name: str) -> Optional[str]:
     """Convert a geosite category name to its .srs CDN URL."""
     mapped = GEOSITE_NAME_MAP.get(name, name)
     if mapped in KNOWN_GEOSITE_SRS:
@@ -70,7 +71,7 @@ def _geosite_to_srs(name: str) -> str | None:
     return None
 
 
-def _geoip_to_srs(name: str) -> str | None:
+def _geoip_to_srs(name: str) -> Optional[str]:
     """Convert a geoip category name to its .srs CDN URL."""
     if name in KNOWN_GEOIP_SRS:
         return f"{GEOIP_SRS_BASE}/{name}.srs"
@@ -152,6 +153,17 @@ def build_rules(config: dict) -> list[dict]:
     return rules
 
 
+def build_throne_profile(config: dict) -> dict:
+    """Build a complete profile accepted by Throne remote-route updates."""
+    return {
+        "kind": "throne-route-profile",
+        "v": 1,
+        "name": "RoscomVPN",
+        "default_outbound": "proxy",
+        "rules": build_rules(config),
+    }
+
+
 def main() -> None:
     parser = argparse.ArgumentParser(
         description="Generate sing-box route rules JSON from HAPP config."
@@ -166,11 +178,17 @@ def main() -> None:
         default=None,
         help="Output JSON file path. If omitted, prints to stdout.",
     )
+    parser.add_argument(
+        "--throne-profile",
+        action="store_true",
+        help="Emit a complete auto-updatable Throne routing profile.",
+    )
     args = parser.parse_args()
 
     config = fetch_config(args.url)
     rules = build_rules(config)
-    json_str = json.dumps(rules, indent=2, ensure_ascii=False)
+    output = build_throne_profile(config) if args.throne_profile else rules
+    json_str = json.dumps(output, indent=2, ensure_ascii=False)
 
     if args.output:
         with open(args.output, "w", encoding="utf-8") as f:

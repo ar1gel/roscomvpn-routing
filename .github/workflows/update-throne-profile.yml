@@ -1,0 +1,47 @@
+name: Update Throne Remote Profile
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "17 */6 * * *"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: update-throne-profile
+  cancel-in-progress: true
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+
+      - name: Generate current Throne profile
+        run: |
+          mkdir -p generated
+          python3 tools/sing-box/generate_singbox_rules.py \
+            --throne-profile \
+            --output generated/throne-profile.json
+
+      - name: Validate generated profile
+        run: |
+          python3 -m json.tool generated/throne-profile.json >/dev/null
+          jq -e '
+            .kind == "throne-route-profile" and
+            .v == 1 and
+            .default_outbound == "proxy" and
+            (.rules | length > 0)
+          ' generated/throne-profile.json >/dev/null
+
+      - name: Commit updated profile
+        run: |
+          git add generated/throne-profile.json
+          if git diff --cached --quiet; then
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -m "chore: update Throne routing profile"
+          git push

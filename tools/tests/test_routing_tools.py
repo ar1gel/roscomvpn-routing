@@ -81,6 +81,14 @@ def test_singbox_conversion():
     direct_rule = next(r for r in rules if r.get("outbound") == "direct")
     assert direct_rule["action"] == "route"
 
+def test_throne_profile():
+    profile = singbox.build_throne_profile(mock_config)
+    assert profile["kind"] == "throne-route-profile"
+    assert profile["v"] == 1
+    assert profile["name"] == "RoscomVPN"
+    assert profile["default_outbound"] == "proxy"
+    assert profile["rules"] == singbox.build_rules(mock_config)
+
 def test_geoasset_urls_releases():
     # Calling the method used by script when --source releases
     urls = geoasset.RELEASES_URLS
