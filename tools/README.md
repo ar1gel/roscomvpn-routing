@@ -85,6 +85,10 @@ python tools/sing-box/generate_singbox_rules.py \
 The fork workflow `.github/workflows/update-throne-profile.yml` refreshes this
 file from the upstream `HAPP/DEFAULT.JSON` every six hours.
 
+The profile uses a technical `direct` default so remote rule-set files can be
+downloaded before the proxy starts. Its final catch-all rule still routes all
+otherwise unmatched user traffic through `proxy`.
+
 ## 🔧 Advanced
 
 All scripts accept `--url` to point at a custom config URL:

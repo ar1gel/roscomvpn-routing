@@ -155,12 +155,17 @@ def build_rules(config: dict) -> list[dict]:
 
 def build_throne_profile(config: dict) -> dict:
     """Build a complete profile accepted by Throne remote-route updates."""
+    rules = build_rules(config)
+    # Keep the technical default direct so sing-box can fetch remote rule-sets
+    # before the proxy outbound is usable. An explicit catch-all preserves the
+    # intended DEFAULT profile behavior for user traffic.
+    rules.append({"action": "route", "outbound": "proxy"})
     return {
         "kind": "throne-route-profile",
         "v": 1,
         "name": "RoscomVPN",
-        "default_outbound": "proxy",
-        "rules": build_rules(config),
+        "default_outbound": "direct",
+        "rules": rules,
     }
 
 

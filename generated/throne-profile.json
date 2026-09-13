@@ -2,7 +2,7 @@
   "kind": "throne-route-profile",
   "v": 1,
   "name": "RoscomVPN",
-  "default_outbound": "proxy",
+  "default_outbound": "direct",
   "rules": [
     {
       "action": "hijack-dns",
@@ -46,6 +46,10 @@
         "https://cdn.jsdelivr.net/gh/hydraponique/roscomvpn-geoip/release/sing-box/private.srs",
         "https://cdn.jsdelivr.net/gh/hydraponique/roscomvpn-geoip/release/sing-box/direct.srs"
       ]
+    },
+    {
+      "action": "route",
+      "outbound": "proxy"
     }
   ]
 }

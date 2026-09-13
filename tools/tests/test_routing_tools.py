@@ -86,8 +86,9 @@ def test_throne_profile():
     assert profile["kind"] == "throne-route-profile"
     assert profile["v"] == 1
     assert profile["name"] == "RoscomVPN"
-    assert profile["default_outbound"] == "proxy"
-    assert profile["rules"] == singbox.build_rules(mock_config)
+    assert profile["default_outbound"] == "direct"
+    assert profile["rules"][:-1] == singbox.build_rules(mock_config)
+    assert profile["rules"][-1] == {"action": "route", "outbound": "proxy"}
 
 def test_geoasset_urls_releases():
     # Calling the method used by script when --source releases

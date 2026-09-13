@@ -31,7 +31,7 @@ jobs:
           jq -e '
             .kind == "throne-route-profile" and
             .v == 1 and
-            .default_outbound == "proxy" and
+            .default_outbound == "direct" and
             (.rules | length > 0)
           ' generated/throne-profile.json >/dev/null
 
