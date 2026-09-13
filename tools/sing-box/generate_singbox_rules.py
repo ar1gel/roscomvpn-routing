@@ -33,10 +33,8 @@ GEOIP_SRS_BASE = (
     "https://cdn.jsdelivr.net/gh/hydraponique/roscomvpn-geoip/release/sing-box"
 )
 
-# Name mapping: DEFAULT.JSON uses some names that differ from the .srs filenames
-GEOSITE_NAME_MAP = {
-    "epicgames": "epic-games",
-}
+# Name mapping for categories whose config and published .srs names differ.
+GEOSITE_NAME_MAP = {}
 
 # Categories for which hydraponique publishes .srs files
 KNOWN_GEOSITE_SRS = {
@@ -44,7 +42,7 @@ KNOWN_GEOSITE_SRS = {
     "apple", "google-play", "google-deepmind",
     "microsoft", "github", "telegram", "youtube",
     "twitch", "twitch-ads", "pinterest",
-    "steam", "epicgames", "epic-games",
+    "steam", "epicgames",
     "riot", "escapefromtarkov", "faceit", "origin",
     "category-ads", "win-spy", "private", "torrent",
 }

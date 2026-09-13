@@ -90,6 +90,9 @@ def test_throne_profile():
     assert profile["rules"][:-1] == singbox.build_rules(mock_config)
     assert profile["rules"][-1] == {"action": "route", "outbound": "proxy"}
 
+def test_epic_games_uses_published_rule_set_name():
+    assert singbox._geosite_to_srs("epicgames").endswith("/epicgames.srs")
+
 def test_geoasset_urls_releases():
     # Calling the method used by script when --source releases
     urls = geoasset.RELEASES_URLS

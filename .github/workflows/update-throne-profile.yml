@@ -34,6 +34,11 @@ jobs:
             .default_outbound == "direct" and
             (.rules | length > 0)
           ' generated/throne-profile.json >/dev/null
+          jq -r '.rules[].rule_set[]? // empty' generated/throne-profile.json \
+            | while IFS= read -r url; do
+                curl --fail --silent --show-error --location \
+                  --retry 3 --output /dev/null "$url"
+              done
 
       - name: Commit updated profile
         run: |
