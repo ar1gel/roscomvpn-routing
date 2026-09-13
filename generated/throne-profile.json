@@ -11,40 +11,40 @@
     {
       "action": "reject",
       "rule_set": [
-        "https://cdn.jsdelivr.net/gh/hydraponique/roscomvpn-geosite/release/sing-box/win-spy.srs",
-        "https://cdn.jsdelivr.net/gh/hydraponique/roscomvpn-geosite/release/sing-box/torrent.srs",
-        "https://cdn.jsdelivr.net/gh/hydraponique/roscomvpn-geosite/release/sing-box/category-ads.srs"
+        "https://raw.githubusercontent.com/hydraponique/roscomvpn-geosite/release/sing-box/win-spy.srs",
+        "https://raw.githubusercontent.com/hydraponique/roscomvpn-geosite/release/sing-box/torrent.srs",
+        "https://raw.githubusercontent.com/hydraponique/roscomvpn-geosite/release/sing-box/category-ads.srs"
       ]
     },
     {
       "action": "route",
       "outbound": "proxy",
       "rule_set": [
-        "https://cdn.jsdelivr.net/gh/hydraponique/roscomvpn-geosite/release/sing-box/google-play.srs",
-        "https://cdn.jsdelivr.net/gh/hydraponique/roscomvpn-geosite/release/sing-box/github.srs",
-        "https://cdn.jsdelivr.net/gh/hydraponique/roscomvpn-geosite/release/sing-box/twitch-ads.srs",
-        "https://cdn.jsdelivr.net/gh/hydraponique/roscomvpn-geosite/release/sing-box/youtube.srs",
-        "https://cdn.jsdelivr.net/gh/hydraponique/roscomvpn-geosite/release/sing-box/telegram.srs"
+        "https://raw.githubusercontent.com/hydraponique/roscomvpn-geosite/release/sing-box/google-play.srs",
+        "https://raw.githubusercontent.com/hydraponique/roscomvpn-geosite/release/sing-box/github.srs",
+        "https://raw.githubusercontent.com/hydraponique/roscomvpn-geosite/release/sing-box/twitch-ads.srs",
+        "https://raw.githubusercontent.com/hydraponique/roscomvpn-geosite/release/sing-box/youtube.srs",
+        "https://raw.githubusercontent.com/hydraponique/roscomvpn-geosite/release/sing-box/telegram.srs"
       ]
     },
     {
       "action": "route",
       "outbound": "direct",
       "rule_set": [
-        "https://cdn.jsdelivr.net/gh/hydraponique/roscomvpn-geosite/release/sing-box/private.srs",
-        "https://cdn.jsdelivr.net/gh/hydraponique/roscomvpn-geosite/release/sing-box/category-ru.srs",
-        "https://cdn.jsdelivr.net/gh/hydraponique/roscomvpn-geosite/release/sing-box/whitelist.srs",
-        "https://cdn.jsdelivr.net/gh/hydraponique/roscomvpn-geosite/release/sing-box/microsoft.srs",
-        "https://cdn.jsdelivr.net/gh/hydraponique/roscomvpn-geosite/release/sing-box/apple.srs",
-        "https://cdn.jsdelivr.net/gh/hydraponique/roscomvpn-geosite/release/sing-box/epicgames.srs",
-        "https://cdn.jsdelivr.net/gh/hydraponique/roscomvpn-geosite/release/sing-box/riot.srs",
-        "https://cdn.jsdelivr.net/gh/hydraponique/roscomvpn-geosite/release/sing-box/escapefromtarkov.srs",
-        "https://cdn.jsdelivr.net/gh/hydraponique/roscomvpn-geosite/release/sing-box/steam.srs",
-        "https://cdn.jsdelivr.net/gh/hydraponique/roscomvpn-geosite/release/sing-box/twitch.srs",
-        "https://cdn.jsdelivr.net/gh/hydraponique/roscomvpn-geosite/release/sing-box/pinterest.srs",
-        "https://cdn.jsdelivr.net/gh/hydraponique/roscomvpn-geosite/release/sing-box/faceit.srs",
-        "https://cdn.jsdelivr.net/gh/hydraponique/roscomvpn-geoip/release/sing-box/private.srs",
-        "https://cdn.jsdelivr.net/gh/hydraponique/roscomvpn-geoip/release/sing-box/direct.srs"
+        "https://raw.githubusercontent.com/hydraponique/roscomvpn-geosite/release/sing-box/private.srs",
+        "https://raw.githubusercontent.com/hydraponique/roscomvpn-geosite/release/sing-box/category-ru.srs",
+        "https://raw.githubusercontent.com/hydraponique/roscomvpn-geosite/release/sing-box/whitelist.srs",
+        "https://raw.githubusercontent.com/hydraponique/roscomvpn-geosite/release/sing-box/microsoft.srs",
+        "https://raw.githubusercontent.com/hydraponique/roscomvpn-geosite/release/sing-box/apple.srs",
+        "https://raw.githubusercontent.com/hydraponique/roscomvpn-geosite/release/sing-box/epicgames.srs",
+        "https://raw.githubusercontent.com/hydraponique/roscomvpn-geosite/release/sing-box/riot.srs",
+        "https://raw.githubusercontent.com/hydraponique/roscomvpn-geosite/release/sing-box/escapefromtarkov.srs",
+        "https://raw.githubusercontent.com/hydraponique/roscomvpn-geosite/release/sing-box/steam.srs",
+        "https://raw.githubusercontent.com/hydraponique/roscomvpn-geosite/release/sing-box/twitch.srs",
+        "https://raw.githubusercontent.com/hydraponique/roscomvpn-geosite/release/sing-box/pinterest.srs",
+        "https://raw.githubusercontent.com/hydraponique/roscomvpn-geosite/release/sing-box/faceit.srs",
+        "https://raw.githubusercontent.com/hydraponique/roscomvpn-geoip/release/sing-box/private.srs",
+        "https://raw.githubusercontent.com/hydraponique/roscomvpn-geoip/release/sing-box/direct.srs"
       ]
     },
     {

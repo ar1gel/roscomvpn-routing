@@ -25,12 +25,13 @@ DEFAULT_CONFIG_URL = (
     "roscomvpn-routing/refs/heads/main/HAPP/DEFAULT.JSON"
 )
 
-# CDN base URLs for .srs rule-set files
+# Canonical GitHub URLs for .srs rule-set files. Throne can keep these URLs or
+# rewrite them to the mirror selected in its Rule-set source setting.
 GEOSITE_SRS_BASE = (
-    "https://cdn.jsdelivr.net/gh/hydraponique/roscomvpn-geosite/release/sing-box"
+    "https://raw.githubusercontent.com/hydraponique/roscomvpn-geosite/release/sing-box"
 )
 GEOIP_SRS_BASE = (
-    "https://cdn.jsdelivr.net/gh/hydraponique/roscomvpn-geoip/release/sing-box"
+    "https://raw.githubusercontent.com/hydraponique/roscomvpn-geoip/release/sing-box"
 )
 
 # Name mapping for categories whose config and published .srs names differ.

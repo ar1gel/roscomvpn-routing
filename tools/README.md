@@ -89,6 +89,9 @@ The profile uses a technical `direct` default so remote rule-set files can be
 downloaded before the proxy starts. Its final catch-all rule still routes all
 otherwise unmatched user traffic through `proxy`.
 
+Rule-set URLs use canonical `raw.githubusercontent.com` addresses, allowing
+Throne to honor the GitHub or jsDelivr mirror selected in its settings.
+
 ## 🔧 Advanced
 
 All scripts accept `--url` to point at a custom config URL:
